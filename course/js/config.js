@@ -1,7 +1,7 @@
 
 function setConfig(){
     var texts = {
-        "title":"Hidrofisio"
+        "title":"Shopping Control"
     };
     document.title = texts.title;
     document.getElementById("navTitle").innerHTML = texts.title;
