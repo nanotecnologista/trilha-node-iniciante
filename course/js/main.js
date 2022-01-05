@@ -20,7 +20,7 @@ function setList(list) {
     table += '</tbody>';
     document.getElementById("listTable").innerHTML = table;
     getTotal(list);
-    initListStorage();
+    saveListStorage(list)
 }
 
 function formatDesc(desc) {
@@ -151,7 +151,7 @@ function deleteList() {
     }
 }
 
-function saveListStorage(){
+function saveListStorage(list){
     var jsonStr= JSON.stringify(list);
     localStorage.setItem("list", jsonStr);
     
@@ -164,4 +164,4 @@ function initListStorage(){
     }
     setList(list);
 }
-initListStorage()
+initListStorage();
