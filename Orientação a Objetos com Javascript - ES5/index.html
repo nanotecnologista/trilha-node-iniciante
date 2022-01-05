@@ -10,11 +10,28 @@
     <p>OOP JavaScript</p>
     <script>
         function Person() {
+            this.name;
+            this.age;   
+            this.height;
             
+            this.sayHello = function(name) {
+                console.log('Hello' + name)
+            }
         }
-        var Person = function Person() {
-            
-        }
+        var leonan = new Person()
+        leonan.name = 'Leonan'
+        leonan.age = 23
+        leonan.height = 1.92
+        leonan.sayHello()
+        
+        console.log(leonan.name)
+
+        var victor = new Person()
+        victor.name = 'Victor'
+        victor.age = 23
+        victor.height = 1.92
+
+        console.log(victor)
     </script>
 </body>
 </html>
