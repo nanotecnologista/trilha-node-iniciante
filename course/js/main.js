@@ -14,7 +14,7 @@ function getTotal(list) {
 function setList(list) {
     var table = '<thead><tr><td>Description</td><td>Amount</td><td>Value</td><td>Action</td></tr></thead>';
     for (var key in list) {
-        table += '<tr><td>' + formatDesc(list[key].desc) + '</td><td>' + list[key].amount + '</td><td>' + formatValue(list[key].value) + '</td><td><button class="btn bnt-default" onclick="setUpdate(' +key+');" >Edit</button>Delete</td></tr>';
+        table += '<tr><td>' + formatDesc(list[key].desc) + '</td><td>' + list[key].amount + '</td><td>' + formatValue(list[key].value) + '</td><td><button class="btn bnt-default" onclick="setUpdate(' +key+');" >Edit</button> <button class="btn bnt-default" onclick="deleteData(' +key+');" >Delete</button></td></tr>';
     }
     table += '</tbody>';
     document.getElementById("listTable").innerHTML = table;
@@ -72,8 +72,22 @@ function updateData() {
     list[id] = { "desc": desc, "amount": amount, "value": value };
     resetForm();
     setList(list)
-    
 }
 
+function deleteData(id){
+    if (confirm("Delete this item?")){
+        if(id === list.length -1){
+            list.pop();
+        }else if (id === 0){
+            list.shift();
+        }else{
+            var arrAuxIni = list.slice(0,id);
+            var arrAuxEnd = list.slice(id + 1);
+            list = arrAuxIni.concat(arrAuxEnd);
+        }
+        setList(list);
+    }
+    
+}
 setList(list)
 console.log(getTotal(list));
