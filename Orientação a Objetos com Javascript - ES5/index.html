@@ -8,7 +8,8 @@
 </head>
 <body>
     <p>OOP JavaScript</p>
-    <script>
+    <script> 
+        //Classe
         function Person(_name, _age, _height) {
             var name = _name
             var age = _age
@@ -52,7 +53,8 @@
             }
 
         }
-
+        
+        //criando um metódo statico
         Person.static_method = function (){
             console.log('This is my first static method')
         }
@@ -63,7 +65,8 @@
         // Person.prototype.myProtoFunc = function(){
         //     console.log ('First prototype function')
         // }
-
+        
+        //usando o prototype
         Person.prototype.happyBirthday = function(){
             this.setAge(this.getAge() +1)
         }
