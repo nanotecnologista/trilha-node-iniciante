@@ -89,11 +89,21 @@
         Employee.prototype = Object.create(Person.prototype)
         
         //console.log(Person.static_attr)
+                
+        var victor = new Person('Victor', 23, 1.60)
+        console.log(victor.getName(), victor.getAge())
+        victor.happyBirthday()
+        console.log(victor.getName(), victor.getAge())
+        
 
         var leonan = new Employee('Leonan', 23, 1.93)
-        console.log(leonan.getAge())
+        console.log(leonan.getName(), leonan.getAge())
+        //polimorfismo
+        leonan.happyBirthday = function happyBirthday(){
+            return this.setAge(this.getAge() +2)
+        }
         leonan.happyBirthday()
-        console.log(leonan.getAge())
+        console.log(leonan.getName(),leonan.getAge())
 
         // var leonan = new Person('Leonan', 22,1.93 )
         // //console.log(leonan)
