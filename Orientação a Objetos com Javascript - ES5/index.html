@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>POO JS</title>
 </head>
 <body>
     <p>OOP JavaScript</p>
@@ -13,7 +13,13 @@
             var name = _name
             var age = _age
             var height = _height
+
+            //instancia privada
+            function privateFunc(){
+                console.log('private func')
+            }
             
+            //instancia pública - lembra um pouco o self. do python
             this.initialize = function(){
                 console.log('This is my initialize function')
             }
@@ -50,27 +56,30 @@
         Person.static_method = function (){
             console.log('This is my first static method')
         }
-        Person.static_method()
+        //Person.static_method()
         Person.static_attr = 'atribuindo um atributo'
 
-        console.log(Person.static_attr)
+        ///usando o prototype
+        Person.prototype.myProtoFunc = function(){
+            console.log ('First prototype function')
+        }
+
+
+        //console.log(Person.static_attr)
 
         var leonan = new Person('Leonan', 22,1.93 )
-        leonan.setName('Leonan')
+        //console.log(leonan)
+        console.log(leonan.__proto__)
+        console.log(Person.prototype)
+        // leonan.setName('Leonan')
         // leonan.setAge(23)
         // leonan.setHeight(1.92)
         // leonan.sayHello(leonan.getName())
         leonan.hello(leonan.getName())
-        leonan.initialize()
+        //leonan.initialize()
         
-        console.log(leonan.name)
+       // console.log(leonan.name)
 
-        var victor = new Person()
-        victor.name = 'Victor'
-        victor.age = 23
-        victor.height = 1.92
-
-        console.log(victor)
     </script>
 </body>
 </html>
