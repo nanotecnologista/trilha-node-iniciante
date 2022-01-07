@@ -9,11 +9,15 @@
 <body>
     <p>OOP JavaScript</p>
     <script>
-        function Person() {
-            var name;
-            var age;   
-            var height;
+        function Person(_name, _age, _height) {
+            var name = _name
+            var age = _age
+            var height = _height
             
+            this.initialize = function(){
+                console.log('This is my initialize function')
+            }
+
             this.sayHello = function(name) {
                 console.log('Hello ' + name)
             }
@@ -51,12 +55,13 @@
 
         console.log(Person.static_attr)
 
-        var leonan = new Person()
+        var leonan = new Person('Leonan', 22,1.93 )
         leonan.setName('Leonan')
-        leonan.setAge(23)
-        leonan.setHeight(1.92)
-        leonan.sayHello(leonan.getName())
+        // leonan.setAge(23)
+        // leonan.setHeight(1.92)
+        // leonan.sayHello(leonan.getName())
         leonan.hello(leonan.getName())
+        leonan.initialize()
         
         console.log(leonan.name)
 
