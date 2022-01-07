@@ -60,22 +60,50 @@
         Person.static_attr = 'atribuindo um atributo'
 
         ///usando o prototype
-        Person.prototype.myProtoFunc = function(){
-            console.log ('First prototype function')
+        // Person.prototype.myProtoFunc = function(){
+        //     console.log ('First prototype function')
+        // }
+
+        Person.prototype.happyBirthday = function(){
+            this.setAge(this.getAge() +1)
         }
 
 
+        //trabalhando com heranças
+        function Employee(_name, _age, _height){
+            var salary
+            
+            //toda vez que eu criar uma instancia da class, já estou transferindo 
+            // os atributos principais para a class person
+            Person.call(this,_name, _age, _height)
+
+            this.getSalary = function(){
+                return salary
+            }
+            this.setSalary = function(_salary){
+                salary = _salary
+            }
+        }
+
+        // inserindo herança 
+        Employee.prototype = Object.create(Person.prototype)
+        
         //console.log(Person.static_attr)
 
-        var leonan = new Person('Leonan', 22,1.93 )
-        //console.log(leonan)
-        console.log(leonan.__proto__)
-        console.log(Person.prototype)
-        // leonan.setName('Leonan')
-        // leonan.setAge(23)
-        // leonan.setHeight(1.92)
-        // leonan.sayHello(leonan.getName())
-        leonan.hello(leonan.getName())
+        var leonan = new Employee('Leonan', 23, 1.93)
+        console.log(leonan.getAge())
+        leonan.happyBirthday()
+        console.log(leonan.getAge())
+
+        // var leonan = new Person('Leonan', 22,1.93 )
+        // //console.log(leonan)
+        // console.log(leonan.__proto__)
+        // console.log(Person.prototype)
+        // // leonan.setName('Leonan')
+        // // leonan.setAge(23)
+        // // leonan.setHeight(1.92)
+        // // leonan.sayHello(leonan.getName())
+        // leonan.hello(leonan.getName())
         //leonan.initialize()
         
        // console.log(leonan.name)
