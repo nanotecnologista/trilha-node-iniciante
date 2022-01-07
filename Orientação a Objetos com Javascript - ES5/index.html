@@ -10,19 +10,53 @@
     <p>OOP JavaScript</p>
     <script>
         function Person() {
-            this.name;
-            this.age;   
-            this.height;
+            var name;
+            var age;   
+            var height;
             
             this.sayHello = function(name) {
-                console.log('Hello' + name)
+                console.log('Hello ' + name)
             }
+
+            this.hello = function hello(name){
+                console.log ('Hello ' + name)
+            }
+
+            this.getName = function getName(){
+                return name
+            }
+            this.setName = function setName(_name){
+                name = _name;
+            }
+            this.getAge = function () {
+                return age
+            }
+            this.setAge = function(_age){
+                age = _age
+            }
+            this.getHeight = function () {
+                return height
+            }
+            this.setHeight = function(_height){
+                height = _height
+            }
+
         }
+
+        Person.static_method = function (){
+            console.log('This is my first static method')
+        }
+        Person.static_method()
+        Person.static_attr = 'atribuindo um atributo'
+
+        console.log(Person.static_attr)
+
         var leonan = new Person()
-        leonan.name = 'Leonan'
-        leonan.age = 23
-        leonan.height = 1.92
-        leonan.sayHello()
+        leonan.setName('Leonan')
+        leonan.setAge(23)
+        leonan.setHeight(1.92)
+        leonan.sayHello(leonan.getName())
+        leonan.hello(leonan.getName())
         
         console.log(leonan.name)
 
