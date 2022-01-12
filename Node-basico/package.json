@@ -1,0 +1,20 @@
+{
+  "name": "node-son",
+  "version": "1.0.0",
+  "description": "iniciando com o node",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "node",
+    "init",
+    "node.js",
+    "nodejs",
+    "school",
+    "of",
+    "net"
+  ],
+  "author": "Julia <son>",
+  "license": "ISC"
+}
