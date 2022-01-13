@@ -16,3 +16,6 @@ A few resources to get you started if this is your first Nodejs project:
 For help getting started with Nodejs, view our
 [online documentation](https://nodejs.org/en/docs/), which offers tutorials,
 samples, guidance on mobile development, and a full API reference.
+
+
+npm install console-log-hello-world --save
