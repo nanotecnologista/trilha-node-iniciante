@@ -16,8 +16,5 @@
     "net"
   ],
   "author": "Julia <son>",
-  "license": "ISC",
-  "devDependencies": {
-    "console-log-hello-world": "^1.0.3"
-  }
+  "license": "ISC"
 }
