@@ -16,5 +16,8 @@
     "net"
   ],
   "author": "Julia <son>",
-  "license": "ISC"
+  "license": "ISC",
+  "dependencies": {
+    "websocket": "^1.0.34"
+  }
 }
