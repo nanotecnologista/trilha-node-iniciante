@@ -1,0 +1,17 @@
+{
+  "name": "express-son",
+  "version": "1.0.0",
+  "description": "school of net",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "express"
+  ],
+  "author": "Julia <SON>",
+  "license": "ISC",
+  "dependencies": {
+    "express": "^4.17.2"
+  }
+}
