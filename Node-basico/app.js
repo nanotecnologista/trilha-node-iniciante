@@ -5,8 +5,10 @@ var c = a+b;
 console.log('c ->',c) */
 
 var http = require('http')
+var handle =require('./handle')
+var s = require ('./name')
 
-function handle(request, response){
+/* function handle(request, response){
     response.writeHead(200, {'Content-Type': 'text/html'})
 
     response.write ('<!DOCTYPE "html">')
@@ -18,9 +20,9 @@ function handle(request, response){
     response.write ('</html>')
     response.end ()
 
-}
-
-var server = http.createServer(handle)
+} */
+console.log(s.name())
+var server = http.createServer(handle.fn)
 
 server.listen(3000, function () {
     console.log ('Server is listening at port 3000')
