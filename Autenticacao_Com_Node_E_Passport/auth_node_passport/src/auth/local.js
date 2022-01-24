@@ -1,4 +1,4 @@
-const LocalStrategy = require('passaport-local')
+const LocalStrategy = require('passport-local')
 const User = require('../model/user')
 
 module.exports = (passport)=>{
@@ -16,7 +16,8 @@ module.exports = (passport)=>{
 
     passport.use('local-signup', new LocalStrategy({
         usernameField: 'username',
-        passwordField: 'password'
+        passwordField: 'password',
+        passReqToCallback: true
 
     },
     function(req, username, password, cb){
@@ -37,9 +38,11 @@ module.exports = (passport)=>{
                                     console.log(error)
                                 return
                                 })
-                
                 }
+            return cb(null, false)
             })
-    }
-    ))
+            .catch((err)=>{
+                return cb(err, false)
+            })
+    }))
 }

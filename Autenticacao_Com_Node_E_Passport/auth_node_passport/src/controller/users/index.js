@@ -1,10 +1,15 @@
 const express = require('express')
 const router = express.Router()
 
-router.get('/', require('./all'))
-router.post('/', require('./create'))
-router.get('/new', require('./new'))
-router.delete('/:id', require('./remove'))
+module.exports = (passport)=>{
 
-
-module.exports = router
+    router.get('/', require('./all'))
+    router.post('/', passport.authenticate('local-signup', {
+        successRedirect:'/',
+        failureRedirect:'/users'
+    }))
+    //router.post('/', require('./create'))
+    router.get('/new', require('./new'))
+    router.delete('/:id', require('./remove'))
+    return router
+}

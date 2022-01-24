@@ -13,6 +13,9 @@ const app = express()
 // passport.use(require('./src/auth/basic'))
 // app.get('*', passport.authenticate('basic', {session: false}))
 
+// /* PASSAPORT LOCAL */
+require('./src/auth/local')(passport)
+
 app.use(morgan('dev'))
 app.use(bodyParser.urlencoded({ extended: false}))
 app.use(bodyParser.json())
@@ -23,8 +26,7 @@ app.use(passport.session())
 app.set('view engine', 'pug')
 app.set('views', path.join(__dirname, 'src/view'))
 
-
-require('./src/index')(app)
+require('./src/index')(app, passport)
 
 mongoose.connect('mongodb://localhost:27017/auth')
 mongoose.Promise = global.Promise
