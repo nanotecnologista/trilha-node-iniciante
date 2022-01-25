@@ -1,4 +1,14 @@
 extends ./../layout/main
 
 block content 
-    h1 Hello Express.js + Passport.js 
+    div.col-xs-12.col-md-12
+        h1 Hello Express.js + Passport.js 
+    div(class="col-xs-12 col-md-12")
+        if(user)            
+            a(href="/auth/logout") Logout 
+    div(class="col-xs-12 col-md-12")
+        if(user)
+            h2 Hello - #{user.name}!  You are Logged in
+        else 
+            h2 Please Log in
+            a(href="/auth/logout") Click Here
