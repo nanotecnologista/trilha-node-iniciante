@@ -13,11 +13,13 @@
                     return
                 }
                 result.data.forEach(function(bill){        
-                    let tmpl = '<tr>'+
-                                '   <td>'+bill.title+'</td>'+
-                                '   <td>'+bill.price+'</td>'+
-                                '   <td> <button type="button" id="btn_delete" class="btn btn-danger btn-small" data-id=' + bill._id + '>Delete</button>'
-                                '</tr>'
+                    let tmpl = '<tr> '+
+                                    '	<td>' + bill.title +  '</td> ' +
+                                    '	<td>' + bill.price +  '</td> ' +
+                                    '	<td><a href="http://localhost:3000/address/' + bill.cep +  '" target="_blank">' + bill.cep + '</a></td> ' +
+                                    '	<td> <button type="button" id="btn_delete" class="btn btn-danger btn-small" data-id=' + bill._id + '>Delete</button>'+
+                                '</tr> '
+                    
                     $('#list-table tbody').append(tmpl)
                 })
             })
@@ -40,17 +42,20 @@
             let title = $('input[name="title"]').val()
             let price = $('input[name="price"]').val()
             let category = $('#select_category').val()
+            let cep = $('input[name="cep"]').val()
 
            // console.log(title, price, category)
 
-            if(!title || !price){
+            if(!title || !price || !category){
                 console.log("Invalid body")
                 return
             }
-            $.post('http://localhost:3000/bills/', {title:title, price:price, category:category}, function(result){
+            $.post('http://localhost:3000/bills/', {title:title, price:price, category:category, cep:cep}, function(result){
                 //clear form
                 $('input[name="title"]').val('')
                 $('input[name="price"]').val('')
+                $('#select_category').val('')
+                $('input[name="cep"]').val('')
                 
                 //list
                 listData()
@@ -59,7 +64,7 @@
 
         const createDataCat = function(){
             //console.log('opa')
-            let name = $('input[name="title"]').val()
+            let name = $('input[name="name"]').val()
 
             if(!name){
                 console.log("Invalid body")

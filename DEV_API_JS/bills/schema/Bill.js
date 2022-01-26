@@ -14,6 +14,9 @@ const Bill = new mongoose.Schema({
         ref: 'Category',
         required: true
     },
+    cep:{
+        type:String
+    },
     status: {
         type: Boolean,
         default: false
