@@ -1,0 +1,23 @@
+extends ./../layout/main
+
+block content
+	h1 #{msg}
+	
+	table(class="table table-responsive")
+		thead
+			tr
+				th #
+				th Event name
+				th Event Desc
+				th Actions
+		tbody
+			each event in events
+				tr
+					td= event.id
+					td= event.name
+					td= event.description
+					td
+						a(href="/events/" + event.id class="btn btn-info") More
+						a(href="/events/edit/" + event.id class="btn btn-info") Edit
+						form(style="display: inline-block", action="/events/" + event.id + "/?_method=DELETE", method="POST")
+							button(type="submit" class="btn btn-danger") Delete

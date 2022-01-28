@@ -1,0 +1,26 @@
+
+ 
+html
+	head
+		title #{title}
+		link(rel="stylesheet", href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/css/bootstrap.min.css")
+	body
+		nav(class="navbar navbar-toggleable-md navbar-light bg-faded")
+			button(class="navbar-toggler navbar-toggler-right", type="button", data-toggle="collapse", data-target="#navbar")
+				span(class="navbar-toggler-icon")
+			a.navbar-brand Events
+
+			div(id="navbar", class="collapse navbar-collapse")
+				ul(class="navbar-nav mr-auto")
+					li(class="nav-item")
+						a(href="/events" class="nav-link") List
+					li(class="nav-item")
+						a(href="/events/new" class="nav-link") Create
+		
+		main.container
+			div.row
+				div.col-xs-12.col-sm-12.col-md-12
+					block content
+
+		script(src="https://code.jquery.com/jquery-3.2.1.min.js")
+		script(src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/js/bootstrap.min.js")

@@ -1,0 +1,7 @@
+extends ./../layout/main
+include ./../mixins/form
+
+block content
+    h1 #{msg}
+    form(action="/events/" method="POST")
+        +form(event)
