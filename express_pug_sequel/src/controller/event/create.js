@@ -6,3 +6,4 @@ module.exports = (req, res)=>{
         .create(req.body)
         .then(()=>res.redirect('/events'))
 }
+//comentário
