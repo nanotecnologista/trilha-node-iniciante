@@ -30453,3 +30453,13 @@ mean/mean-express/package-lock.json
 mean/mean-angular/.vscode/extensions.json
 .gitignore
 mean/mean-angular/.vscode/tasks.json
+mean/mean-express/node_modules/cors/CONTRIBUTING.md
+mean/mean-express/node_modules/cors/HISTORY.md
+mean/mean-express/node_modules/cors/LICENSE
+mean/mean-express/node_modules/cors/package.json
+mean/mean-express/node_modules/cors/README.md
+mean/mean-express/node_modules/cors/lib/index.js
+mean/mean-express/node_modules/object-assign/index.js
+mean/mean-express/node_modules/object-assign/license
+mean/mean-express/node_modules/object-assign/package.json
+mean/mean-express/node_modules/object-assign/readme.md
