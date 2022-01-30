@@ -1,4 +1,4 @@
-import Bill from "./../schema/Bill"
+import Bill from "../schema/Bill"
 
 export default (req, res) =>{
 
