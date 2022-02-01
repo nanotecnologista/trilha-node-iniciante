@@ -31232,3 +31232,4 @@ test/node_modules/yocto-queue/index.js
 test/node_modules/yocto-queue/license
 test/node_modules/yocto-queue/package.json
 test/node_modules/yocto-queue/readme.md
+test/package-lock.json
