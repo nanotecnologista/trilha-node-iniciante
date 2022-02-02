@@ -8,4 +8,10 @@ export class TaskActive extends BaseEntity{
     title: string;
     @Column()
     done: boolean;
+
+    static findByTitle(title: string){
+        return this.createQueryBuilder("task")
+        .where("task.title = :title", {title})
+        .getMany()
+    }
 }
