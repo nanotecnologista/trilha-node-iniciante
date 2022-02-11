@@ -23,8 +23,8 @@ app.use(methodOverride('_method'))
 app.use(session({ secret:'#N@noT3CnoLoGist4!', resave: false, saveUninitialized: true}))
 app.use(passport.initialize())
 app.use(passport.session())
-app.set('view engine', 'pug')
-app.set('views', path.join(__dirname, 'src/view'))
+/* app.set('view engine', 'html')
+ */app.set('views', path.join(__dirname, 'src/view'))
 
 require('./src/index')(app, passport)
 
