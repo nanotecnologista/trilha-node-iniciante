@@ -1,1 +1,6 @@
-{}
+{
+  "devDependencies": {
+    "class-validator": "^0.13.2",
+    "install": "^0.13.0"
+  }
+}

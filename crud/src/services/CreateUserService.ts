@@ -1,22 +1,17 @@
 import {getRepository} from "typeorm"
 import { User } from "../entities/User"
-
-type UserRequest ={
-    name: string,
-    email: string,
-    password: string
-}
+import { UserRequest } from "../controllers/dto/user.dto"
 
 export class CreateUserService {
     
     async execute({name, email, password}:UserRequest): Promise<User | Error>{
         const repo = getRepository(User)
+        const isEmail = await repo.findOne({email})
 
         // SELECT * FROM CATEGORIES WHERE EMAIL = "EMAIL" LIMIT 1
-        if (await repo.findOne({email})){
+        if (isEmail){
             return new Error("Email alredy exists")
         }
-
 
         const user = repo.create({
             name,
