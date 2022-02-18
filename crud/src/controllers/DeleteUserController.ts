@@ -14,6 +14,6 @@ export class DeleteUserController{
             return response.status(400).json(result.message)
         }
 
-        return response.status(204).end()
+        return response.status(204).json('Deleted Sucessifuly')
     }
 }
