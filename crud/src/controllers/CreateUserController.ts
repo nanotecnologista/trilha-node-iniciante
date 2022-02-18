@@ -9,10 +9,10 @@ export class CreateUserController{
 
         const result = await service.execute({name, email, password})
 
-        if (result instanceof Error){
-            return response.status(400).json(result.message)
+        if (result['status']==400){
+            return response.status(400).json(result)
         }
 
-        return response.json(result)
+        return response.json("Sucessifuly").status(200)
     }
 }

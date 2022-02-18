@@ -1,16 +1,17 @@
-import {IsEmail, Min, Max, Length} from "class-validator"
+import {IsEmail,IsNotEmpty, Min, Max, Length} from "class-validator"
 
 export class UserRequest {
-    
-    @Length(10,40)
+    @IsNotEmpty()
+    @Length(5,50)
     name: string
     
-    @Length(10,60)
+    @IsNotEmpty()
+    @Length(5,60)
     @IsEmail()
     email:string
     
+    @IsNotEmpty()
     @Min(6)
     @Max(16)
     password: string
-        
 }
