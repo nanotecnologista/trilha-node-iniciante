@@ -1,12 +1,12 @@
 import { Request, Response } from 'express'
-import { DeleteUserService } from '../services/DeleteUserService'
+import { DeleteUserTypeService } from '../../services/UsersType/DeleteUserTypeService' 
 
-export class DeleteUserController{
+export class DeleteUserTypeController{
     async handle(request: Request, response: Response){
         
        const { id } = request.params
         
-       const service = new DeleteUserService()
+       const service = new DeleteUserTypeService()
        
        const result = await service.execute(id)
        
