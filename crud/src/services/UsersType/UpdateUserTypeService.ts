@@ -1,4 +1,4 @@
-import { UserTypeUpdateRequest } from './../../controllers/dto/usertype.dto copy';
+import { UserTypeUpdateRequest } from './../../controllers/dto/usertype.dto';
 import { UserType } from './../../entities/UserType';
 import { getRepository } from "typeorm"
 import { validate } from "class-validator"

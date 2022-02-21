@@ -16,9 +16,9 @@ export class UpdateUserService{
         //validando as infos
         const userReq = new UserUpdateRequest()
         userReq.name = name
-        user.email = email
-        user.password = password
-        user.user_type_id = user_type_id
+        userReq.email = email
+        userReq.password = password
+        userReq.user_type_id = user_type_id
 
         const errors = await validate(userReq)
         if(errors.length > 0){
