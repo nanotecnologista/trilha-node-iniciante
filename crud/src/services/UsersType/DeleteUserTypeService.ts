@@ -11,5 +11,9 @@ export class DeleteUserTypeService{
     }        
     await repo.delete(id)
 
+    return {
+        status:204,
+        message: "delete Sucessifuly!"
+    }
    }
 }

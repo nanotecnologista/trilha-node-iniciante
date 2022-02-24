@@ -25,7 +25,6 @@ export class UpdateUserService{
             return {
                 status:400,
                 message: errors,
-                instanceof: Error
             }
         }
 
@@ -36,7 +35,11 @@ export class UpdateUserService{
         user.user_type_id = user_type_id ? user_type_id : user.user_type_id
 
         await repo.save(user)
-
-        return user
+        delete user.password
+        return {
+            status: 204,
+            message: "Update sucessifuly",
+            data:user
+        }
     }
 }

@@ -13,7 +13,10 @@ export class CreateUserTypeService {
 
         // SELECT * FROM CATEGORIES WHERE EMAIL = "EMAIL" LIMIT 1
         if (isName){
-            return new Error("Type alredy exists")
+            return {
+                status: 400,
+                message: "Type alredy exists"
+            }
         }
 
 
@@ -31,13 +34,16 @@ export class CreateUserTypeService {
         if(errors.length > 0){
             return {
                 status:400,
-                message: errors,
-                instanceof: Error                
+                message: errors,              
             }
         }
 
         await repo.save(usertype)
         
-        return usertype
+        return {
+            status: 200,
+            message: "Sucessifuly",
+            data:usertype
+        }
     }
 }

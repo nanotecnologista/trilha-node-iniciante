@@ -33,6 +33,10 @@ export class UpdateUserTypeService{
         user_type.description = description ? description : user_type.description
         await repo.save(user_type)
 
-        return user_type
+        return {
+            status: 204,
+            message: "Update Sucessifuly",
+            data: user_type
+        }
     }
 }

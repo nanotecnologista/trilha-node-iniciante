@@ -9,10 +9,6 @@ export class CreateUserTypeController{
 
         const result = await service.execute({name, description})
 
-        if (result instanceof Error){
-            return response.status(400).json(result)
-        }
-
-        return response.json("Sucessifuly").status(200)
+        return response.status(result.status).json(result)
     }
 }
