@@ -1,11 +1,11 @@
 import {MigrationInterface, QueryRunner, Table} from "typeorm";
 
-export class CreateUserType1645210417847 implements MigrationInterface {
+export class CreateUserType1645559061854 implements MigrationInterface {
 
     public async up(queryRunner: QueryRunner): Promise<void> {
         await queryRunner.createTable(
             new Table({
-                name: 'users_type',
+                name: 'users_types',
                 columns:[
                     {
                         name: 'id',
@@ -35,7 +35,6 @@ export class CreateUserType1645210417847 implements MigrationInterface {
     }
 
     public async down(queryRunner: QueryRunner): Promise<void> {
-        await queryRunner.dropTable('users_type')
+        await queryRunner.dropTable('users_types')
     }
-
 }

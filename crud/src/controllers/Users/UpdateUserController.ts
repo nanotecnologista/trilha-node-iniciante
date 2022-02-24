@@ -13,10 +13,6 @@ export class UpdateUSerController {
 
         const result = await service.execute({id, name, email, password, user_type_id})
 
-        if (result instanceof Error){
-            return response.status(400).json(result.message)
-        }
-        
-        return response.json("update sucessifuly");
+        return response.status(result.status).json(result)
     }
 }

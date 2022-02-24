@@ -26,7 +26,7 @@ routes.put("/user/:id", new UpdateUSerController().handle)
 
 //User Type
 routes.post("/usertype", new CreateUserTypeController().handle)
-routes.get("/usertypes", new GetAllUsersTypesController().handle)
+routes.get("/userstypes", new GetAllUsersTypesController().handle)
 routes.delete("/usertype/:id", new DeleteUserTypeController().handle)
 routes.put("/usertype/:id", new UpdateUserTypeController().handle)
 

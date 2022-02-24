@@ -12,12 +12,10 @@ export class UserRequest {
     email:string
     
     @IsNotEmpty()
-    @Min(6)
-    @Max(16)
     password: string
 
     @IsNotEmpty()
-    user_type_id:string
+    user_type_id: string
 }
 
 export class UserUpdateRequest {
