@@ -1,6 +1,6 @@
 import {getRepository} from "typeorm"
 import { User } from "../../entities/User"
-import { UserRequest } from "../../controllers/dto/user.dto"
+import { UserRequest } from "../../controllers/dto/UserDto"
 import { validate } from "class-validator"
 import { UserType } from "../../entities/UserType"
 
@@ -38,15 +38,15 @@ export class CreateUserService {
 
                 if (!IsUserTypeId){
                     return {
-                        status:400,
-                        message: "Is User Type ID do not exists"
+                        status:404,
+                        message: "Is User Type ID not found"
                     }
                 }
 
             }catch{
                 return {
                     status:400,
-                    message: "Type Id not find"
+                    message: "External Error Server"
                 }
             }
 
@@ -57,8 +57,7 @@ export class CreateUserService {
                     message: "Email alredy exists"
                 }
             }
-            
-           
+             
 
             const user = repo.create({
                 name,

@@ -1,6 +1,6 @@
 import { getRepository } from "typeorm"
 import { User } from "../../entities/User"
-import { UserUpdateRequest } from "../../controllers/dto/user.dto"
+import { UserUpdateRequest } from "../../controllers/dto/UserDto"
 import { validate } from "class-validator"
 
 export class UpdateUserService{
@@ -10,7 +10,10 @@ export class UpdateUserService{
         const user = await repo.findOne(id)
 
         if (!user){
-            return new Error("User doesn't exists!")
+            return {
+                status: 404,
+                message: "User dnot found!"
+            }
         }
 
         //validando as infos
@@ -37,7 +40,7 @@ export class UpdateUserService{
         await repo.save(user)
         delete user.password
         return {
-            status: 204,
+            status: 200,
             message: "Update sucessifuly",
             data:user
         }

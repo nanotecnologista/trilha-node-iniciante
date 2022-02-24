@@ -7,12 +7,15 @@ export class DeleteUserTypeService{
         const repo = getRepository(UserType)
 
     if(!await repo.findOne(id)){
-        return new Error("Type does not exists!")
+        return {
+            status: 404,
+            message:"Type not find!"
+        }
     }        
     await repo.delete(id)
 
     return {
-        status:204,
+        status:200,
         message: "delete Sucessifuly!"
     }
    }

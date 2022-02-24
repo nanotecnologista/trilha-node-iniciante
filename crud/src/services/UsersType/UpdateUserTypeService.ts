@@ -1,4 +1,4 @@
-import { UserTypeUpdateRequest } from './../../controllers/dto/usertype.dto';
+import { UserTypeUpdateRequest } from '../../controllers/dto/UserTypeDto';
 import { UserType } from './../../entities/UserType';
 import { getRepository } from "typeorm"
 import { validate } from "class-validator"
@@ -10,7 +10,10 @@ export class UpdateUserTypeService{
         const user_type = await repo.findOne(id)
 
         if (!user_type){
-            return new Error("Type doesn't exists!")
+            return {
+                status: 404,
+                message: "Type not find"
+            }
         }
 
         //validando as infos
@@ -24,7 +27,6 @@ export class UpdateUserTypeService{
             return {
                 status:400,
                 message: errors,
-                instanceof: Error
             }
         }
 

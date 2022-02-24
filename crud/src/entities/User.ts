@@ -1,4 +1,4 @@
-import {Entity, Column, CreateDateColumn, ManyToOne, JoinColumn, PrimaryColumn} from "typeorm";
+import {Entity, Column, CreateDateColumn, ManyToOne, JoinColumn, PrimaryColumn, BeforeInsert, BeforeUpdate} from "typeorm";
 import {v4 as uuid} from "uuid"
 import bcrypt from 'bcrypt'
 import { UserType } from "./UserType";
@@ -25,6 +25,9 @@ export class User{
     @JoinColumn({name:"user_type_id"})
     user_type: UserType;
     
+
+    @BeforeInsert()
+    @BeforeUpdate()
     hashPassword() {
         this.password = bcrypt.hashSync(this.password, 8);
     }

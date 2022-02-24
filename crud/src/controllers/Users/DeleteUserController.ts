@@ -10,6 +10,6 @@ export class DeleteUserController{
        
        const result = await service.execute(id)
        
-       return response.status(result.status).json(result)
+       return response.json(result).status(result.status)
     }
 }
