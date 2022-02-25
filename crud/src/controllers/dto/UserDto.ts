@@ -1,4 +1,4 @@
-import { User } from './../../entities/User';
+import { User } from '../../entities/User';
 import {IsEmail,IsNotEmpty, Min, Max, Length} from "class-validator"
 
 export class UserRequest {

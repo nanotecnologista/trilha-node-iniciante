@@ -1,14 +1,21 @@
 import { Router } from "express";
-import { CreateUserController } from "./controllers/Users/CreateUserController"
-import { GetAllUsersController } from "./controllers/Users/GetAllUsersController";
-import { DeleteUserController } from "./controllers/Users/DeleteUserController";
-import { UpdateUSerController} from "./controllers/Users/UpdateUserController"
+
+import AuthMiddleware from "./middlewares/AuthMiddleware";
+
+//User 
+import { CreateUserController } from "./controllers/users/CreateUserController"
+import { GetAllUsersController } from "./controllers/users/GetAllUsersController";
+import { DeleteUserController } from "./controllers/users/DeleteUserController";
+import { UpdateUSerController} from "./controllers/users/UpdateUserController"
 
 //User Type
-import { CreateUserTypeController } from "./controllers/UsersType/CreateUserTypeController"; 
-import { GetAllUsersTypesController } from "./controllers/UsersType/GetAllUsersTypesController"; 
-import { DeleteUserTypeController } from "./controllers/UsersType/DeleteUserTypeController"; 
-import { UpdateUserTypeController } from "./controllers/UsersType/UpdateUserTypeController"; 
+import { CreateUserTypeController } from "./controllers/users_types/CreateUserTypeController"; 
+import { GetAllUsersTypesController } from "./controllers/users_types/GetAllUsersTypesController"; 
+import { DeleteUserTypeController } from "./controllers/users_types/DeleteUserTypeController"; 
+import { UpdateUserTypeController } from "./controllers/users_types/UpdateUserTypeController"; 
+
+//Auth
+import { AuthController } from "./controllers/auth/AuthController";
 
 const routes = Router()
 
@@ -19,8 +26,12 @@ const routes = Router()
 * D - DELETE - (DELETE) -ok
 */
 
+//Auth
+routes.post("/auth", new AuthController().handle)
+
+//User
 routes.post("/user", new CreateUserController().handle)
-routes.get("/users", new GetAllUsersController().handle)
+routes.get("/users", AuthMiddleware ,new GetAllUsersController().handle)
 routes.delete("/user/:id", new DeleteUserController().handle)
 routes.put("/user/:id", new UpdateUSerController().handle)
 
