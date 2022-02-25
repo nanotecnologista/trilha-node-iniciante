@@ -1,15 +1,16 @@
+import  jwt  from 'jsonwebtoken';
 import {getRepository} from "typeorm"
 import { User } from "../../entities/User"
 import { UserRequest } from "../../controllers/dto/UserDto"
 import { validate } from "class-validator"
 import { UserType } from "../../entities/UserType"
-
+import { ValidateMail } from "../../nodemail/sendMail"
 
 export class CreateUserService {
     
     async execute({name, email, password, user_type_id}:UserRequest): Promise<{}>{
         
-        try{    
+        try{            
             //verificando erros
             const userReq = new UserRequest()
             userReq.name = name
@@ -59,20 +60,34 @@ export class CreateUserService {
             }
              
 
+            const secret = process.env.JWT_SECRET_KEY || ''
+            const email_token = jwt.sign({email: email}, secret)
+            const is_validated = false
+
+            const validateMail =  new ValidateMail()
+            
+            validateMail.sendMail(email_token, email)
+
             const user = repo.create({
                 name,
                 email,
                 password,
-                user_type_id            
+                user_type_id,
+                is_validated
             })
 
             await repo.save(user)
             delete user.password
             
+
+
             return {
                 status:201,
                 message: "Create Sucessifuly",
-                data: user
+                data: {
+                    user, 
+                    email_token
+                }
             }
 
         } catch{

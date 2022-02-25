@@ -1,12 +1,6 @@
 import  jwt  from 'jsonwebtoken';
 import { Response, Request, NextFunction } from 'express';
-
-
-interface TokenPayload{
-    id: string
-    iat: number
-    exp: number
-}
+import { TokenPayloadLogin } from './intefaces/TokenInterface';
 
 export default function AuthMiddleware(request: Request, response: Response, next: NextFunction){
 
@@ -21,7 +15,7 @@ export default function AuthMiddleware(request: Request, response: Response, nex
     try{
         const data = jwt.verify(token, process.env.JWT_SECRET_KEY)
 
-        const {id} = data as TokenPayload
+        const {id} = data as TokenPayloadLogin
 
         request.userId = id
 

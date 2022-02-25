@@ -13,18 +13,20 @@ export class User{
 
     @Column()
     email: string;
-
     
-    @Column()
-    user_type_id: string;
-
     @Column()
     password: string;
     
+    @Column()
+    user_type_id: string;
+        
+    @Column()
+    is_validated: boolean;
+    
+
     @ManyToOne(()=> UserType)
     @JoinColumn({name:"user_type_id"})
     user_type: UserType;
-    
 
     @BeforeInsert()
     @BeforeUpdate()
