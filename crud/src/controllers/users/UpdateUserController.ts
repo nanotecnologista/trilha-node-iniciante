@@ -1,6 +1,6 @@
-import { User } from './../../entities/User';
+import { User } from '../../entities/User';
 import { Request, Response } from "express";
-import { UpdateUserService } from '../../services/Users/UpdateUserService'; 
+import { UpdateUserService } from '../../services/users/UpdateUserService'; 
 
 
 export class UpdateUSerController {

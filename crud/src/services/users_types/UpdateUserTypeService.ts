@@ -1,5 +1,5 @@
 import { UserTypeUpdateRequest } from '../../controllers/dto/UserTypeDto';
-import { UserType } from './../../entities/UserType';
+import { UserType } from '../../entities/UserType';
 import { getRepository } from "typeorm"
 import { validate } from "class-validator"
 

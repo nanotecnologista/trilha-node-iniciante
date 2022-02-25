@@ -1,4 +1,4 @@
-import { UserType } from './../../entities/UserType';
+import { UserType } from '../../entities/UserType';
 import { getRepository } from "typeorm";
 
 
