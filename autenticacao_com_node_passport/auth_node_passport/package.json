@@ -17,7 +17,7 @@
     "mongoose": "^6.4.6",
     "mongoose-type-email": "^1.1.2",
     "morgan": "^1.10.0",
-    "passport": "^0.5.2",
+    "passport": "^0.6.0",
     "passport-http": "^0.3.0",
     "passport-local": "^1.0.0",
     "pug": "^3.0.2"
